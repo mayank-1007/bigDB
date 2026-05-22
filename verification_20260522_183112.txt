@@ -1,0 +1,184 @@
+=====================================
+BIGTABLE COMPLETE VALIDATION
+=====================================
+
+STEP 0 — Clean
+
+STEP 1 — Build
+
+STEP 2 — All Tests
+?   	bigtable/cmd/db	[no test files]
+ok  	bigtable/internal/api	9.310s
+ok  	bigtable/internal/bloom	2.467s
+?   	bigtable/internal/compaction	[no test files]
+ok  	bigtable/internal/db	12.270s
+ok  	bigtable/internal/memtable	2.467s
+ok  	bigtable/internal/record	2.394s
+?   	bigtable/internal/recovery	[no test files]
+ok  	bigtable/internal/sstable	2.573s
+?   	bigtable/internal/telemetry	[no test files]
+ok  	bigtable/internal/wal	2.573s
+ok  	bigtable/tests	2.484s [no tests to run]
+
+STEP 3 — Race Detection
+?   	bigtable/cmd/db	[no test files]
+ok  	bigtable/internal/api	7.557s
+ok  	bigtable/internal/bloom	3.611s
+?   	bigtable/internal/compaction	[no test files]
+ok  	bigtable/internal/db	11.957s
+ok  	bigtable/internal/memtable	3.650s
+ok  	bigtable/internal/record	3.688s
+?   	bigtable/internal/recovery	[no test files]
+ok  	bigtable/internal/sstable	3.687s
+?   	bigtable/internal/telemetry	[no test files]
+ok  	bigtable/internal/wal	3.303s
+ok  	bigtable/tests	3.700s [no tests to run]
+
+STEP 4 — Stability (10x)
+?   	bigtable/cmd/db	[no test files]
+ok  	bigtable/internal/api	7.474s
+ok  	bigtable/internal/bloom	4.045s
+?   	bigtable/internal/compaction	[no test files]
+ok  	bigtable/internal/db	91.222s
+ok  	bigtable/internal/memtable	4.066s
+ok  	bigtable/internal/record	4.065s
+?   	bigtable/internal/recovery	[no test files]
+ok  	bigtable/internal/sstable	4.338s
+?   	bigtable/internal/telemetry	[no test files]
+ok  	bigtable/internal/wal	4.524s
+ok  	bigtable/tests	4.176s [no tests to run]
+
+STEP 5 — Benchmarks
+?   	bigtable/cmd/db	[no test files]
+PASS
+ok  	bigtable/internal/api	4.212s
+PASS
+ok  	bigtable/internal/bloom	0.859s
+?   	bigtable/internal/compaction	[no test files]
+goos: windows
+goarch: amd64
+pkg: bigtable/internal/db
+cpu: 13th Gen Intel(R) Core(TM) i7-13620H
+BenchmarkDBPutSequential-16       	    2096	    682406 ns/op	     499 B/op	       8 allocs/op
+BenchmarkDBGetHotKey-16           	 5081670	       239.0 ns/op	       8 B/op	       2 allocs/op
+BenchmarkDBConcurrentWrites-16    	    2055	    529505 ns/op	     115 B/op	       7 allocs/op
+BenchmarkDBRecoveryReplay-16      	      12	 120213275 ns/op	 2059413 B/op	   30113 allocs/op
+PASS
+ok  	bigtable/internal/db	29.852s
+PASS
+ok  	bigtable/internal/memtable	0.840s
+PASS
+ok  	bigtable/internal/record	0.826s
+?   	bigtable/internal/recovery	[no test files]
+PASS
+ok  	bigtable/internal/sstable	0.868s
+?   	bigtable/internal/telemetry	[no test files]
+PASS
+ok  	bigtable/internal/wal	0.887s
+PASS
+ok  	bigtable/tests	0.822s
+
+STEP 6 — Recovery
+=== RUN   TestRecoveryAfterUncleanShutdownSimulation
+--- PASS: TestRecoveryAfterUncleanShutdownSimulation (0.04s)
+=== RUN   TestRecoveryAfterManyWrites
+--- PASS: TestRecoveryAfterManyWrites (0.77s)
+PASS
+ok  	bigtable/internal/db	2.392s
+
+STEP 7 — Compaction
+=== RUN   TestDBCompactionRemovesDuplicatesAndTombstones
+--- PASS: TestDBCompactionRemovesDuplicatesAndTombstones (0.13s)
+=== RUN   TestLeveledCompactionPromotesFiles
+--- PASS: TestLeveledCompactionPromotesFiles (0.10s)
+PASS
+ok  	bigtable/internal/db	1.851s
+
+STEP 8 — Corruption
+=== RUN   TestSSTableChecksumDetectsCorruption
+--- PASS: TestSSTableChecksumDetectsCorruption (0.01s)
+PASS
+ok  	bigtable/internal/sstable	1.827s
+
+STEP 9 — API
+=== RUN   TestStateEndpoint
+--- PASS: TestStateEndpoint (0.00s)
+=== RUN   TestCommandEndpoint
+--- PASS: TestCommandEndpoint (0.00s)
+=== RUN   TestEventsEndpointStreams
+--- PASS: TestEventsEndpointStreams (0.02s)
+PASS
+ok  	bigtable/internal/api	4.409s
+
+STEP 10 — WAL
+=== RUN   TestWALChecksumDetectsCorruption
+--- PASS: TestWALChecksumDetectsCorruption (0.02s)
+=== RUN   TestWALAppendAndReplay
+--- PASS: TestWALAppendAndReplay (0.01s)
+PASS
+ok  	bigtable/internal/wal	1.791s
+
+STEP 11 — Memtable
+=== RUN   TestMemtablePutGetDelete
+--- PASS: TestMemtablePutGetDelete (0.00s)
+PASS
+ok  	bigtable/internal/memtable	1.774s
+
+STEP 12 — DB
+=== RUN   TestDBCachesAndClosesSSTables
+--- PASS: TestDBCachesAndClosesSSTables (0.06s)
+=== RUN   TestDBReadsFromCachedSSTables
+--- PASS: TestDBReadsFromCachedSSTables (0.06s)
+=== RUN   TestDBCompactionRemovesDuplicatesAndTombstones
+--- PASS: TestDBCompactionRemovesDuplicatesAndTombstones (0.14s)
+=== RUN   TestRecoveryAfterUncleanShutdownSimulation
+--- PASS: TestRecoveryAfterUncleanShutdownSimulation (0.05s)
+=== RUN   TestRecoveryAfterManyWrites
+--- PASS: TestRecoveryAfterManyWrites (0.92s)
+=== RUN   TestDBPutGetRestartRecovery
+--- PASS: TestDBPutGetRestartRecovery (0.04s)
+=== RUN   TestDBFlushToSSTableAndReadBack
+--- PASS: TestDBFlushToSSTableAndReadBack (0.05s)
+=== RUN   TestBackgroundFlushDoesNotBreakReads
+--- PASS: TestBackgroundFlushDoesNotBreakReads (0.05s)
+=== RUN   TestLeveledCompactionPromotesFiles
+--- PASS: TestLeveledCompactionPromotesFiles (0.12s)
+=== RUN   TestConcurrentWritesAndReads
+--- PASS: TestConcurrentWritesAndReads (7.80s)
+=== RUN   TestDBWALRotationAndRecovery
+--- PASS: TestDBWALRotationAndRecovery (0.17s)
+PASS
+ok  	bigtable/internal/db	11.245s
+
+STEP 13 — CPU Profile
+goos: windows
+goarch: amd64
+pkg: bigtable/internal/db
+cpu: 13th Gen Intel(R) Core(TM) i7-13620H
+BenchmarkDBPutSequential-16       	     837	   1371551 ns/op
+BenchmarkDBGetHotKey-16           	 2293520	       487.3 ns/op
+BenchmarkDBConcurrentWrites-16    	     756	   1478497 ns/op
+BenchmarkDBRecoveryReplay-16      	       6	 180011267 ns/op
+PASS
+ok  	bigtable/internal/db	43.293s
+
+STEP 14 — Memory Profile
+goos: windows
+goarch: amd64
+pkg: bigtable/internal/db
+cpu: 13th Gen Intel(R) Core(TM) i7-13620H
+BenchmarkDBPutSequential-16       	     763	   1997828 ns/op
+BenchmarkDBGetHotKey-16           	 2608414	       453.2 ns/op
+BenchmarkDBConcurrentWrites-16    	     879	   1749040 ns/op
+BenchmarkDBRecoveryReplay-16      	       6	 180282233 ns/op
+PASS
+ok  	bigtable/internal/db	35.102s
+
+STEP 15 — Build Server
+
+=====================================
+SUCCESS
+Logs → verification_20260522_183112.txt
+cpu.out generated
+mem.out generated
+=====================================
