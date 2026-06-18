@@ -1,6 +1,6 @@
 # AETHER_DB — Bigtable-Inspired Storage Engine
 
-AETHER_DB is a Go storage-engine project inspired by Bigtable and LSM-tree systems. It is not just a CRUD demo: it implements a durable write path, an in-memory memtable, immutable SSTables, background flush, leveled compaction, crash recovery, corruption detection, live telemetry, and an HTTP API that drives a real-time visualizer.
+AETHER_DB is a Go storage-engine project inspired by Bigtable and LSM-tree systems. It implements a durable write path, an in-memory memtable, immutable SSTables, background flush, leveled compaction, crash recovery, corruption detection, live telemetry, and an HTTP API that drives a real-time visualizer.
 
 The project was validated with full test, race, stability, benchmark, recovery, compaction, corruption, and API checks. The final validation run passed end-to-end, including `go test ./...`, `go test -race ./...`, `go test ./... -count=10`, the recovery suite, the compaction suite, SSTable corruption tests, API tests, and profiling runs. Representative benchmark results from the latest validation were:
 
