@@ -1,0 +1,53 @@
+=====================================
+BIGTABLE COMPLETE VALIDATION
+=====================================
+
+STEP 0 — Clean
+
+STEP 1 — Build
+
+STEP 2 — All Tests
+?   	bigtable/cmd/db	[no test files]
+ok  	bigtable/internal/api	4.879s
+ok  	bigtable/internal/bloom	1.403s
+?   	bigtable/internal/compaction	[no test files]
+ok  	bigtable/internal/db	6.996s
+ok  	bigtable/internal/memtable	1.459s
+ok  	bigtable/internal/record	1.409s
+?   	bigtable/internal/recovery	[no test files]
+ok  	bigtable/internal/sstable	1.311s
+?   	bigtable/internal/telemetry	[no test files]
+ok  	bigtable/internal/wal	1.522s
+ok  	bigtable/tests	1.449s [no tests to run]
+
+STEP 3 — Race Detection
+?   	bigtable/cmd/db	[no test files]
+ok  	bigtable/internal/api	5.826s
+ok  	bigtable/internal/bloom	2.189s
+?   	bigtable/internal/compaction	[no test files]
+ok  	bigtable/internal/db	7.835s
+ok  	bigtable/internal/memtable	2.193s
+ok  	bigtable/internal/record	2.225s
+?   	bigtable/internal/recovery	[no test files]
+ok  	bigtable/internal/sstable	2.339s
+?   	bigtable/internal/telemetry	[no test files]
+ok  	bigtable/internal/wal	2.384s
+ok  	bigtable/tests	2.199s [no tests to run]
+
+STEP 4 — Stability (10x)
+?   	bigtable/cmd/db	[no test files]
+ok  	bigtable/internal/api	3.822s
+ok  	bigtable/internal/bloom	1.521s
+?   	bigtable/internal/compaction	[no test files]
+--- FAIL: TestLeveledCompactionPromotesFiles (0.09s)
+    leveled_compaction_test.go:74: unexpected value for k2: ok=false value=""
+FAIL
+FAIL	bigtable/internal/db	45.486s
+ok  	bigtable/internal/memtable	1.540s
+ok  	bigtable/internal/record	1.464s
+?   	bigtable/internal/recovery	[no test files]
+ok  	bigtable/internal/sstable	1.676s
+?   	bigtable/internal/telemetry	[no test files]
+ok  	bigtable/internal/wal	1.821s
+ok  	bigtable/tests	1.484s [no tests to run]
+FAIL

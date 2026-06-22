@@ -10,8 +10,8 @@ import (
 
 	"bigtable/internal/compaction"
 	"bigtable/internal/memtable"
-	"bigtable/internal/recovery"
 	"bigtable/internal/record"
+	"bigtable/internal/recovery"
 	"bigtable/internal/sstable"
 	"bigtable/internal/telemetry"
 	"bigtable/internal/wal"
@@ -570,8 +570,20 @@ func (db *DB) compactLevel(level uint32) error {
 
 	db.sstMu.Lock()
 
-	oldFiles := db.sstables[level]
-	db.sstables[level] = make([]*sstable.File, 0)
+	oldFiles := append([]*sstable.File(nil), files...)
+	toRemove := make(map[*sstable.File]struct{}, len(oldFiles))
+	for _, f := range oldFiles {
+		toRemove[f] = struct{}{}
+	}
+
+	current := db.sstables[level]
+	remaining := make([]*sstable.File, 0, len(current))
+	for _, f := range current {
+		if _, ok := toRemove[f]; !ok {
+			remaining = append(remaining, f)
+		}
+	}
+	db.sstables[level] = remaining
 	db.sstables[level+1] = append(db.sstables[level+1], merged)
 
 	sort.Slice(db.sstables[level+1], func(i, j int) bool {
