@@ -1,13 +1,13 @@
 package main
 
 import (
+	"bigtable/internal/db"
 	"flag"
 	"fmt"
 	"log"
 	"net/http"
 	_ "net/http/pprof"
 	"os"
-	"bigtable/internal/db"
 )
 
 func main() {
