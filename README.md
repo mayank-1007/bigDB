@@ -1,10 +1,10 @@
-# Big_DB — Bigtable-Inspired Storage Engine
+# BigDB — Bigtable-Inspired/LSM-tree Storage Engine
 
-Big_DB is a Go-based storage engine inspired by Bigtable and LSM-tree design principles. It implements a durable write path, in-memory memtable, immutable SSTables, background flush, leveled compaction, crash recovery, corruption detection, and telemetry.
+BigDB is a Go-based storage engine inspired by Bigtable and LSM-tree design principles. It implements a durable write path, in-memory memtable, immutable SSTables, background flush, leveled compaction, crash recovery, corruption detection, and telemetry.
 
 ## Overview
 
-Big_DB is designed to demonstrate the core mechanics of a production-style storage engine, including:
+BigDB is designed to demonstrate the core mechanics of a production-style storage engine, including:
 
 - write-ahead logging for durability
 - in-memory buffering through a memtable
