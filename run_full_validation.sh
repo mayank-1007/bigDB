@@ -47,31 +47,27 @@ echo "STEP 8 — Corruption"
 go test -run Corruption -v ./internal/sstable
 
 echo
-echo "STEP 9 — API"
-go test -v ./internal/api
-
-echo
-echo "STEP 10 — WAL"
+echo "STEP 9 — WAL"
 go test -v ./internal/wal
 
 echo
-echo "STEP 11 — Memtable"
+echo "STEP 10 — Memtable"
 go test -v ./internal/memtable
 
 echo
-echo "STEP 12 — DB"
+echo "STEP 11 — DB"
 go test -v ./internal/db
 
 echo
-echo "STEP 13 — CPU Profile"
+echo "STEP 12 — CPU Profile"
 go test -bench=. -cpuprofile cpu.out ./internal/db
 
 echo
-echo "STEP 14 — Memory Profile"
+echo "STEP 13 — Memory Profile"
 go test -bench=. -memprofile mem.out ./internal/db
 
 echo
-echo "STEP 15 — Build Server"
+echo "STEP 14 — Build CLI"
 go build -o bigtable.exe ./cmd/db
 
 echo
