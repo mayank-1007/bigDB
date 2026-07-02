@@ -26,7 +26,7 @@ The engine follows a standard LSM-style flow:
 Reads are resolved in the following order:
 
 1. Memtable
-2. Recently flushed state
+2. Recently flushed state and cached SSTables
 3. SSTables, searched in level order
 4. Tombstones to preserve delete semantics
 
@@ -38,6 +38,7 @@ Writes are first appended to the WAL and then applied to the memtable. This ensu
 
 - **WAL-first durability** with checksum validation
 - **Memtable** for fast in-memory reads and writes
+- **SSTable caching** to keep opened tables in memory and avoid repeated reloads
 - **SSTable flush path** with sparse indexing and Bloom filters
 - **Leveled compaction** with duplicate elimination and tombstone handling
 - **Crash recovery** through WAL replay
