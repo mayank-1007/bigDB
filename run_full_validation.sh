@@ -7,7 +7,7 @@ OUT="verification_$(date +%Y%m%d_%H%M%S).txt"
 exec > >(tee "$OUT") 2>&1
 
 echo "====================================="
-echo "BIGTABLE COMPLETE VALIDATION"
+echo "bigdb COMPLETE VALIDATION"
 echo "====================================="
 
 echo
@@ -68,7 +68,7 @@ go test -bench=. -memprofile mem.out ./internal/db
 
 echo
 echo "STEP 14 — Build CLI"
-go build -o bigtable.exe ./cmd/db
+go build -o bigdb.exe ./cmd/db
 
 echo
 echo "====================================="

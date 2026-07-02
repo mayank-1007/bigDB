@@ -3,7 +3,7 @@ package memtable
 import (
 	"testing"
 
-	"bigtable/internal/record"
+	"bigdb/internal/record"
 )
 
 func TestMemtablePutGetDelete(t *testing.T) {

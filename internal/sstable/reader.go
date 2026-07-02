@@ -9,8 +9,8 @@ import (
 	"os"
 	"sort"
 
-	"bigtable/internal/bloom"
-	"bigtable/internal/record"
+	"bigdb/internal/bloom"
+	"bigdb/internal/record"
 )
 
 func Open(path string) (*File, error) {

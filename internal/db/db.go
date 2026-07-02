@@ -8,13 +8,13 @@ import (
 	"sync"
 	"time"
 
-	"bigtable/internal/compaction"
-	"bigtable/internal/memtable"
-	"bigtable/internal/record"
-	"bigtable/internal/recovery"
-	"bigtable/internal/sstable"
-	"bigtable/internal/telemetry"
-	"bigtable/internal/wal"
+	"bigdb/internal/compaction"
+	"bigdb/internal/memtable"
+	"bigdb/internal/record"
+	"bigdb/internal/recovery"
+	"bigdb/internal/sstable"
+	"bigdb/internal/telemetry"
+	"bigdb/internal/wal"
 )
 
 type frozenSnapshot struct {

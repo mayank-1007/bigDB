@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"sync"
 
-	"bigtable/internal/record"
+	"bigdb/internal/record"
 )
 
 type Memtable struct {

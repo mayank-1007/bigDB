@@ -1,0 +1,24 @@
+# Git metadata
+.git
+.gitignore
+
+# Local build and test outputs
+*.exe
+*.out
+coverage.out
+mem.out
+cpu.out
+verification_*.txt
+
+# Data and runtime artifacts
+data/
+*.log
+
+# Editor and OS clutter
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Extra local files
+package-lock.json

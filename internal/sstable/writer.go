@@ -8,8 +8,8 @@ import (
 	"os"
 	"sort"
 
-	"bigtable/internal/bloom"
-	"bigtable/internal/record"
+	"bigdb/internal/bloom"
+	"bigdb/internal/record"
 )
 
 func WriteSnapshot(path string, snapshot map[string]record.Record, sparseGap int) error {

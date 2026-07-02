@@ -67,6 +67,26 @@ Writes are first appended to the WAL and then applied to the memtable. This ensu
 - `internal/recovery` — WAL replay into memtable
 - `internal/telemetry` — event and snapshot types
 
+## Container Delivery
+
+The project can be built and shared as a container image.
+
+```bash
+docker build -t bigdb .
+docker run --rm -v bigdb-data:/data bigdb -put-key user:1 -put-value alice
+```
+
+Published image:
+
+- GHCR: `ghcr.io/mayank-1007/bigdb:latest`
+- Package page: `https://github.com/users/mayank-1007/packages/container/bigdb`
+
+Can be directly pulled with:
+
+```bash
+docker pull ghcr.io/mayank-1007/bigdb:latest
+```
+
 ## Usage
 
 ### One-shot CLI mode

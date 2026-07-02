@@ -3,8 +3,8 @@ package compaction
 import (
 	"fmt"
 
-	"bigtable/internal/record"
-	"bigtable/internal/sstable"
+	"bigdb/internal/record"
+	"bigdb/internal/sstable"
 )
 
 func Merge(paths []string, outPath string, sparseGap int) error {

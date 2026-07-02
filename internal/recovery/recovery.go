@@ -1,9 +1,9 @@
 package recovery
 
 import (
-	"bigtable/internal/memtable"
-	"bigtable/internal/record"
-	"bigtable/internal/wal"
+	"bigdb/internal/memtable"
+	"bigdb/internal/record"
+	"bigdb/internal/wal"
 )
 
 func ReplayToMemtable(w *wal.WAL, m *memtable.Memtable) error {

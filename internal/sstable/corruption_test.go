@@ -5,7 +5,7 @@ import (
 	"path/filepath"
 	"testing"
 
-	"bigtable/internal/record"
+	"bigdb/internal/record"
 )
 
 func TestSSTableChecksumDetectsCorruption(t *testing.T) {

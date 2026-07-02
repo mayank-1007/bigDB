@@ -12,7 +12,7 @@ import (
 	"strings"
 	"sync"
 
-	"bigtable/internal/record"
+	"bigdb/internal/record"
 )
 
 const checksumFlag uint32 = 1 << 31

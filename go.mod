@@ -1,3 +1,3 @@
-module bigtable
+module bigdb
 
 go 1.22

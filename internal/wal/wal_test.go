@@ -4,7 +4,7 @@ import (
 	"path/filepath"
 	"testing"
 
-	"bigtable/internal/record"
+	"bigdb/internal/record"
 )
 
 func TestWALAppendAndReplay(t *testing.T) {

@@ -6,7 +6,7 @@ import (
 	"strconv"
 	"strings"
 
-	"bigtable/internal/bloom"
+	"bigdb/internal/bloom"
 )
 
 var (

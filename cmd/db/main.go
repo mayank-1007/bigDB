@@ -1,7 +1,7 @@
 package main
 
 import (
-	"bigtable/internal/db"
+	"bigdb/internal/db"
 	"flag"
 	"fmt"
 	"log"
