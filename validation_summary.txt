@@ -1,0 +1,25 @@
+Validation Summary
+==================
+Build: PASS
+Smoke test: PASS
+Validation scenarios: PASS
+CTest: PASS
+Benchmark results:
+[ok] put_get
+[ok] delete
+[ok] compact
+[ok] recovery
+benchmark_round_1_elapsed_ms=84.6042
+benchmark_round_2_elapsed_ms=88.2919
+benchmark_round_3_elapsed_ms=82.5854
+benchmark_round_4_elapsed_ms=83.944
+benchmark_round_5_elapsed_ms=199.124
+benchmark_rounds=5
+benchmark_operations_per_round=2000
+benchmark_total_operations=10000
+benchmark_average_elapsed_ms=107.71
+benchmark_average_ops_per_sec=92842
+benchmark_hot_read_elapsed_ms=71.5087
+benchmark_hot_read_ops_per_sec=69921.6
+benchmark_concurrent_writes_elapsed_ms=312.768
+benchmark_concurrent_writes_ops_per_sec=12789
